@@ -35,7 +35,7 @@ function Materiales ()
     superficie=largo*ancho;
     cemento=superficie*2;
     cal=superficie*3;
-    alert("se debe comprar de cemento"+cemento+"y de cal"+cal);
+    alert("se debe comprar de cemento " +cemento+ " y de cal " +cal);
 
 
 
