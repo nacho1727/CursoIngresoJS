@@ -10,5 +10,55 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  */
 function CalcularPrecio () 
 {
- 	
+    var lampara, valorLampara, marca, precioDescuento;
+    var descuento50, descuento40, descuento30, descuento25, descuento20, descuento15, descuento10, descuento5, impuesto;
+    lampara=document.getElementById("Cantidad").value;
+    marca=document.getElementById("Marca").value;
+    precioDescuento=document.getElementById("precioDescuento").value;
+    precioDescuento=parseInt(precioDescuento)
+    valorLampara=lampara*35;
+    lampara=parseInt(lampara);
+    descuento50=-(50/100*valorLampara-valorLampara);
+    descuento40=-(40/100*valorLampara-valorLampara);
+    descuento30=-(30/100*valorLampara-valorLampara);
+    descuento25=-(25/100*valorLampara-valorLampara);
+    descuento20=-(20/100*valorLampara-valorLampara);
+    descuento15=-(15/100*valorLampara-valorLampara);
+    descuento10=-(10/100*valorLampara-valorLampara);
+    descuento5=-(5/100*valorLampara-valorLampara);
+    impuesto=10/100*precioDescuento+precioDescuento
+    if(lampara>=6||marca){
+        document.getElementById("precioDescuento").value=descuento50;
+    }else{
+        if(lampara==5 && marca=="ArgentinaLuz"){
+            document.getElementById("precioDescuento").value=descuento40
+        }else{
+            if(lampara==5||marca){
+                document.getElementById("precioDescuento").value=descuento30
+            }else{
+                if(lampara==4 && (marca=="ArgentinaLuz"||marca=="FelipeLamparas")){
+                    document.getElementById("precioDescuento").value=descuento25
+                }else{
+                    if(lampara==4 || marca){
+                        document.getElementById("precioDescuento").value=descuento20
+                    }else{
+                        if(lampara==3 && marca=="ArgentinaLuz"){
+                        document.getElementById("precioDescuento").value=descuento15
+                    }else{
+                        if(lampara==3 && marca=="FelipeLamparas"){
+                            document.getElementById("precioDescuento").value=descuento10
+                        }else{
+                            if(lampara==3 && marca){
+                                document.getElementById("precioDescuento").value=descuento5
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    }
+    if(precioDescuento>120){
+    alert("IIBB usted pago " + impuesto)
+    }
 }
